@@ -16,12 +16,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-
     <link href="/index/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="/index/css/bootstrap-icons.css" rel="stylesheet">
-
     <link href="/index/css/tooplate-mini-finance.css" rel="stylesheet">
+    <link href="/index/css/wallet.css" rel="stylesheet">
 </head>
 
 <body>
@@ -123,14 +121,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/index/student/profile.jsp">
+                        <a class="nav-link" href="/StudentInformation">
                             <i class="bi-person me-2"></i>
                             个人中心
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/index/student/wallet.jsp">
+                        <a class="nav-link" href="/EmploymentInformation">
                             <i class="bi-wallet me-2"></i>
                             实习就业管理
                         </a>
@@ -270,9 +268,9 @@
 </div>
 
 <!-- JAVASCRIPT FILES -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="/index/js/jquery.min.js"></script>
+<script src="/index/js/bootstrap.bundle.min.js"></script>
+<script src="/index/js/custom.js"></script>
 
 </body>
 

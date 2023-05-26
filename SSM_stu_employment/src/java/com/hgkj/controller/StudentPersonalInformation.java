@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class StudentPersonalInformation {
     @Autowired
@@ -17,8 +19,9 @@ public class StudentPersonalInformation {
     @Autowired
     TeacherService teacherService;
     @RequestMapping("/StudentInformation")
-    public ModelAndView StudentInformation(@SessionAttribute("studentId") int studentId) {
+    public ModelAndView StudentInformation(HttpSession session) {
         ModelAndView modelAndView = new ModelAndView();
+        int studentId= (int) session.getAttribute("studentId");
         Student student = studentService.allStudentByIdService(studentId);
         Teacher teacher=teacherService.allTeacherByIdService(student.getTeacherId());
         modelAndView.addObject("student", student);

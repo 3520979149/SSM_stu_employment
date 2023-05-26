@@ -1,22 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta name="description" content="">
-    <meta name="author" content="">
     <title>学生就业管理系统-实习就业管理</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="/index/css/apexcharts.css" rel="stylesheet">
     <link href="/index/css/bootstrap.min.css" rel="stylesheet">
     <link href="/index/css/bootstrap-icons.css" rel="stylesheet">
-    <link href="/index/css/apexcharts.css" rel="stylesheet">
     <link href="/index/css/tooplate-mini-finance.css" rel="stylesheet">
-</head>
+    <link href="/index/css/wallet.css" rel="stylesheet">
 
 <body>
 <header class="navbar sticky-top flex-md-nowrap">
@@ -27,18 +25,22 @@
         </a>
     </div>
 
-    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#" method="get" role="form">
+    <form class="custom-form header-form ms-lg-3 ms-md-3 me-lg-auto me-md-auto order-2 order-lg-0 order-md-0" action="#"
+          method="get" role="form">
         <input class="form-control" name="search" type="text" placeholder="Search" aria-label="Search">
     </form>
     <div class="navbar-nav me-lg-2">
         <div class="nav-item text-nowrap d-flex align-items-center">
             <!-- 消息提示 -->
             <div class="dropdown ps-3">
-                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle text-center" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
                     <i class="bi-bell"></i>
                     <span class="position-absolute start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
                                 <span class="visually-hidden">New alerts</span>
@@ -91,7 +93,8 @@
             </div>
             <!-- 头像导航栏 -->
             <div class="dropdown px-3">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                   aria-expanded="false">
                     <img src="../../images/user.png" class="profile-image img-fluid" alt="">
                 </a>
                 <ul class="dropdown-menu bg-white shadow">
@@ -146,14 +149,14 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/index/student/profile.jsp">
+                        <a class="nav-link" href="/StudentInformation">
                             <i class="bi-person me-2"></i>
                             个人中心
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/index/student/wallet.jsp">
+                        <a class="nav-link active" href="/EmploymentInformation">
                             <i class="bi-wallet me-2"></i>
                             实习就业管理
                         </a>
@@ -178,41 +181,98 @@
         </nav>
 
         <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
-            <table border="1px" cellpadding="5px" cellspacing="1px">
+            <div class="inputBox" id="poplayer">
+                <input type="button" onclick="popDiv();" value="添加就业信息">
+            </div>
+            <div class="tableBox">
+                <table border="1px" cellpadding="5px" cellspacing="1px">
                 <tr>
-                    <td>就业单位</td>
-                    <td>就业单位地址</td>
-                    <td>就业岗位</td>
-                    <td>薪资待遇</td>
-                    <td>单位联系人</td>
-                    <td>单位联系人电话</td>
-                    <td>目前状态</td>
+                    <th>就业时间</th>
+                    <th>就业单位</th>
+                    <th>就业单位地址</th>
+                    <th>就业岗位</th>
+                    <th>薪资待遇</th>
+                    <th>单位联系人</th>
+                    <th>单位联系人电话</th>
+                    <th>目前状态</th>
+                    <th>操作</th>
                 </tr>
-                <tr>
-                    <td>华为</td>
-                    <td>深圳</td>
-                    <td>Java工程师</td>
-                    <td>10k</td>
-                    <td>张三</td>
-                    <td>123456789</td>
+                <c:forEach items="${employment}" var="employment">
+                    <tr>
+                        <td>${employment.employmentTime}</td>
+                        <td>${employment.employmentCompany}</td>
+                        <td>${employment.companyAddress}</td>
+                        <td>${employment.employmentPost}</td>
+                        <td>${employment.salary}元</td>
+                        <td>${employment.employmentContact}</td>
+                        <td>${employment.contactTel}</td>
+                        <td>${employment.state}</td>
+
                     <td>
-                        <select name="" id="">
-                            <option value="">在职</option>
-                            <option value="">面试中</option>
-                            <option value="">已离职</option>
-                        </select>
+                        <a href="#" onclick="popDiv()">修改</a>
+                        <a href="#">删除</a>
                     </td>
-                </tr>
+                    </tr>
+                </c:forEach>
             </table>
+        </div>
+        <div id="popDiv">
+            <div class="close">
+                <a href="javascript:void(0)" onclick="closePop()">X</a>
+            </div>
+            <form action="" method="post">
+                <div class="addBox">
+                    <span>就业时间</span>
+                    <input type="date" name="employmentTime">
+                </div>
+                <div class="addBox">
+                    <span>就业公司</span>
+                    <input type="text" name="employmentCompany">
+                </div>
+                <div class="addBox">
+                    <span>就业公司地址</span>
+                    <input type="text" name="companyAddress">
+                </div>
+                <div class="addBox">
+                    <span>就业岗位</span>
+                    <input type="text" name="employmentPost">
+                </div>
+                <div class="addBox">
+                    <span>薪资待遇</span>
+                    <input type="text" name="salary">
+                </div>
+                <div class="addBox">
+                    <span>公司联系人</span>
+                    <input type="text">
+                </div>
+                <div class="addBox">
+                    <span>公司联系人电话</span>
+                    <input type="text" name="employmentContact">
+                </div>
+                <div class="addBox">
+                    <span>就业状态</span>
+                    <input type="radio" class="radio" name="state" value="在职" checked="true">在职
+                    <input type="radio" class="radio" name="state" value="面试中">面试中
+                    <input type="radio" class="radio" name="state" value="已离职">已离职
+                </div>
+                <div class="addBox submit">
+                    <input type="submit" value="提交">
+                    <input type="reset" value="重置">
+                </div>
+            </form>
+        </div>
+
+
         </main>
 
     </div>
 </div>
 
 <!-- JAVASCRIPT FILES -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/apexcharts.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="/index/js/jquery.min.js"></script>
+<script src="/index/js/bootstrap.bundle.min.js"></script>
+<script src="/index/js/apexcharts.min.js"></script>
+<script src="/index/js/custom.js"></script>
+<script src="/index/js/wallet.js"></script>
 </body>
 </html>

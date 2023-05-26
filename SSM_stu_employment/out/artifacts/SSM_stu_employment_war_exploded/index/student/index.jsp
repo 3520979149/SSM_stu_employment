@@ -19,8 +19,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap">
-
-
 </head>
 
 <body>
@@ -159,7 +157,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/index/student/wallet.jsp">
+                        <a class="nav-link" href="/EmploymentInformation">
                             <i class="bi-wallet me-2"></i>
                             实习就业管理
                         </a>
@@ -196,10 +194,10 @@
 </div>
 
 <!-- JAVASCRIPT FILES -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/apexcharts.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="/index/js/jquery.min.js"></script>
+<script src="/index/js/bootstrap.bundle.min.js"></script>
+<script src="/index/js/apexcharts.min.js"></script>
+<script src="/index/js/custom.js"></script>
 
 <script type="text/javascript">
     var options = {

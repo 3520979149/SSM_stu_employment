@@ -34,7 +34,7 @@
                     </div>
                     <div class="inputBox"><input type="text" name="major" placeholder="请输入专业"></div>
                     <div class="inputBox"><input type="text" name="classes" placeholder="请输入班级"></div>
-                    <div class="inputBox"><input type="text" name="studentTel" placeholder="请输入联系电话"></div>
+                    <div class="inputBox"><input type="text" name="studentTel" placeholder="请输入联系电话" pattern="[0-9]{11}"></div>
                     <div class="inputBox"><input type="text" name="teacherName" placeholder="请输入辅导姓名"></div>
                     <div class="inputBox"><input type="submit" id="register" value="注册"></div>
                     <p class="login">账号已注册?<a href="../login/login.jsp">Click here</a></p>

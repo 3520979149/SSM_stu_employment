@@ -1,4 +1,4 @@
-/* .welcome{
+.welcome{
     display: flex;
     background: #fff;
     border-radius: 20px;
@@ -7,12 +7,8 @@
     border: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-} */
-.welcome{
-    display: flex;
-    margin: 300px 100px;
-    /* background-color: aliceblue; */
 }
+
 .welcome p{
     display: block;
     font-size: 50px;
