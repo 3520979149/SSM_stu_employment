@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class StudentPersonalInformation {
@@ -30,5 +31,15 @@ public class StudentPersonalInformation {
         return modelAndView;
     }
 
+    @RequestMapping("/TeacherStudentInformation")
+    public ModelAndView teacherStudentInformation(HttpSession session){
+        ModelAndView modelAndView=new ModelAndView();
+        Teacher teacher= (Teacher) session.getAttribute("teacher");
+        int teacherId=teacher.getTeacherId();
+        List<Student> students=studentService.allStudentByTeacherIdService(teacherId);
+        modelAndView.addObject("students",students);
+        modelAndView.setViewName("/index/teacher/wallet.jsp");
+        return modelAndView;
+    }
 
 }

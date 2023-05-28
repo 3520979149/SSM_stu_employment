@@ -18,22 +18,18 @@
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
-
-    <link href="../css/tooplate-mini-finance.css" rel="stylesheet">
+    <link href="/index/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/index/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/index/css/apexcharts.css" rel="stylesheet">
+    <link href="/index/css/tooplate-mini-finance.css" rel="stylesheet">
 </head>
 
 <body>
 <header class="navbar sticky-top flex-md-nowrap">
     <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/index/teacher/index.jsp">
             <i class="bi-box"></i>
             学生就业管理系统
         </a>
@@ -122,35 +118,35 @@
             <div class="position-sticky py-4 px-3 sidebar-sticky">
                 <ul class="nav flex-column h-100">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/teacher/index.jsp">
+                        <a class="nav-link" aria-current="page" href="/index/teacher/index.jsp">
                             <i class="bi-house-fill me-2"></i>
                             首页
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/teacher/profile.jsp">
+                        <a class="nav-link" href="/TeacherInformation">
                             <i class="bi-person me-2"></i>
                             个人中心
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/teacher/wallet.jsp">
+                        <a class="nav-link" href="/TeacherStudentInformation">
                             <i class="bi-wallet me-2"></i>
                             实习就业管理
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="/teacher/setting.jsp">
+                        <a class="nav-link active" href="/index/teacher/setting.jsp">
                             <i class="bi-gear me-2"></i>
                             设置
                         </a>
                     </li>
 
                     <li class="nav-item border-top mt-auto pt-2">
-                        <a class="nav-link" href="/Login/login.jsp">
+                        <a class="nav-link" href="/index.jsp">
                             <i class="bi-box-arrow-left me-2"></i>
                             退出系统
                         </a>
@@ -171,7 +167,12 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                        aria-controls="profile-tab-pane" aria-selected="true">修改密码</button>
+                                        aria-controls="profile-tab-pane" aria-selected="true">修改个人信息</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="password-tab" data-bs-toggle="tab"
+                                        data-bs-target="#password-tab-pane" type="button" role="tab"
+                                        aria-controls="password-tab-pane" aria-selected="true">修改密码</button>
                             </li>
 
                             <li class="nav-item" role="presentation">
@@ -182,10 +183,35 @@
                                     <button class="nav-link" id="notification-tab" data-bs-toggle="tab" data-bs-target="#notification-tab-pane" type="button" role="tab" aria-controls="notification-tab-pane" aria-selected="false">通知</button>
                                 </li> -->
                         </ul>
+
                         <div class="tab-content" id="myTabContent">
-                            <!-- 修改密码 -->
                             <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel"
                                  aria-labelledby="profile-tab" tabindex="0">
+                                <h6 class="mb-4">个人信息</h6>
+
+                                <form class="custom-form profile-form" action="#" method="post" role="form">
+                                    <input type="text" name="major" id="major" pattern=""
+                                           class="form-control" placeholder="您的权限只能修改联系方式哦！" required=""
+                                           readonly="true">
+
+                                    <input type="text" name="phone" id="phone"
+                                           pattern="[0-9]{1,11}" class="form-control" placeholder="请输入联系方式"
+                                           required="">
+
+                                    <div class="d-flex">
+                                        <%--                                        <button type="button" class="form-control me-3">--%>
+                                        <%--                                            重置--%>
+                                        <%--                                        </button>--%>
+
+                                        <button type="submit" class="form-control ms-2">
+                                            保存
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- 修改密码 -->
+                            <div class="tab-pane fade" id="password-tab-pane" role="tabpanel"
+                                 aria-labelledby="password-tab" tabindex="0">
                                 <h6 class="mb-4">密码</h6>
 
                                 <form class="custom-form password-form" action="#" method="post" role="form">
@@ -201,9 +227,9 @@
                                            required="">
 
                                     <div class="d-flex">
-                                        <button type="button" class="form-control me-3">
-                                            重置
-                                        </button>
+                                        <%--                                        <button type="button" class="form-control me-3">--%>
+                                        <%--                                            重置--%>
+                                        <%--                                        </button>--%>
 
                                         <button type="submit" class="form-control ms-2">
                                             保存
@@ -211,29 +237,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <!-- 个人信息 -->
-                            <!-- <div class="tab-pane fade" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
-                                    <h6 class="mb-4">用户信息</h6>
 
-                                    <form class="custom-form profile-form" action="#" method="post" role="form">
-                                        <input class="form-control" type="text" name="profile-userName"  placeholder="请输入您的姓名">
-                                        <input class="form-control" type="text" name="profile-userId"  placeholder="请输入您的学号">
-                                        <div class="input-group mb-1">
-                                            <img src="../images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
-
-                                            <input type="file" class="form-control" id="inputGroupFile02">
-                                        </div>
-                                        <div class="d-flex">
-                                            <button type="button" class="form-control me-3">
-                                                重置
-                                            </button>
-
-                                            <button type="submit" class="form-control ms-2">
-                                                保存
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div> -->
                             <!-- 通知 -->
                             <!-- <div class="tab-pane fade" id="notification-tab-pane" role="tabpanel" aria-labelledby="notification-tab" tabindex="0">
                                     <h6 class="mb-4">Notification</h6>
@@ -277,9 +281,10 @@
 </div>
 
 <!-- JAVASCRIPT FILES -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="/index/js/jquery.min.js"></script>
+<script src="/index/js/bootstrap.bundle.min.js"></script>
+<script src="/index/js/custom.js"></script>
+
 
 </body>
 </html>

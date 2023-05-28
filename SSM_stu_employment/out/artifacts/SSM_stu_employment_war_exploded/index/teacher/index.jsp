@@ -19,17 +19,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
-    <link href="../css/apexcharts.css" rel="stylesheet">
-    <link href="../css/tooplate-mini-finance.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/index.css">
+    <link href="/index/css/index.css" rel="stylesheet">
+    <link href="/index/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/index/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/index/css/apexcharts.css" rel="stylesheet">
+    <link href="/index/css/tooplate-mini-finance.css" rel="stylesheet">
+    <link rel="stylesheet" href="/index/css/index.css">
 </head>
 
 <body>
 <header class="navbar sticky-top flex-md-nowrap">
     <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.jsp">
             <i class="bi-box"></i>
             学生就业管理系统
         </a>
@@ -109,7 +110,7 @@
             <div class="dropdown px-3">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                    aria-expanded="false">
-                    <img src="../images/user.png" class="profile-image img-fluid" alt="">
+                    <img src="../../images/user.png" class="profile-image img-fluid" alt="">
                 </a>
                 <ul class="dropdown-menu bg-white shadow">
                     <li>
@@ -124,14 +125,14 @@
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="/teacher/index.jsp">
+                        <a class="dropdown-item" href="/index/teacher/index.jsp">
                             <i class="bi-person me-2"></i>
                             个人中心
                         </a>
                     </li>
 
                     <li>
-                        <a class="dropdown-item" href="/teacher/setting.jsp">
+                        <a class="dropdown-item" href="/index/teacher/setting.jsp">
                             <i class="bi-gear me-2"></i>
                             设置
                         </a>
@@ -155,28 +156,28 @@
             <div class="position-sticky py-4 px-3 sidebar-sticky">
                 <ul class="nav flex-column h-100">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/teacher/index.jsp">
+                        <a class="nav-link active" aria-current="page" href="/index/teacher/index.jsp">
                             <i class="bi-house-fill me-2"></i>
                             首页
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/teacher/profile.jsp">
+                        <a class="nav-link" href="/TeacherInformation">
                             <i class="bi-person me-2"></i>
                             个人中心
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/teacher/wallet.jsp">
+                        <a class="nav-link" href="/TeacherStudentInformation">
                             <i class="bi-wallet me-2"></i>
                             实习就业管理
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/teacher/setting.jsp">
+                        <a class="nav-link" href="/index/teacher/setting.jsp">
                             <i class="bi-gear me-2"></i>
                             设置
                         </a>
@@ -184,7 +185,7 @@
 
 
                     <li class="nav-item border-top mt-auto pt-2">
-                        <a class="nav-link" href="/Login/login.jsp">
+                        <a class="nav-link" href="/index.jsp">
                             <i class="bi-box-arrow-left me-2"></i>
                             退出系统
                         </a>
@@ -206,10 +207,10 @@
 </div>
 
 <!-- JAVASCRIPT FILES -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/apexcharts.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="/index/js/jquery.min.js"></script>
+<script src="/index/js/bootstrap.bundle.min.js"></script>
+<script src="/index/js/apexcharts.min.js"></script>
+<script src="/index/js/custom.js"></script>
 
 <script type="text/javascript">
     var options = {

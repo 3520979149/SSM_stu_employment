@@ -26,6 +26,7 @@ public class StudentController {
         Teacher teacher = teacherService.allTeacherByNameService(student.getTeacherName());
         student.setCollege(teacher.getCollege());
         student.setTeacherId(teacher.getTeacherId());
+        student.setSchoolRecord("在籍");
         int row = studentService.addStudent(student);
         if (row > 0) {
             modelAndView.addObject("studentId", student.getStudentId());

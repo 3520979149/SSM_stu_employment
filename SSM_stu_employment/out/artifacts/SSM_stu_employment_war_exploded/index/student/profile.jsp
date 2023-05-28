@@ -253,7 +253,12 @@
                             <strong>辅导员联系方式:</strong>
                             <span>${teacher.teacherTel}</span>
                         </p>
+                        <p class="d-flex flex-wrap mb-2">
+                            <strong>学籍状态</strong>
+                            <span>${student.schoolRecord}</span>
+                        </p>
                     </div>
+
                 </div>
 
                 <div class="col-lg-5 col-12">

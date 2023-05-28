@@ -14,6 +14,7 @@ public class Student {
     private long studentTel;
     private int teacherId;
     private String teacherName;
+    private String schoolRecord;
 
     public Student() {
     }

@@ -1,5 +1,6 @@
 package com.hgkj.controller;
 
+import com.hgkj.model.entity.Teacher;
 import com.hgkj.model.service.StudentService;
 import com.hgkj.model.service.TeacherService;
 import com.hgkj.model.service.UserService;
@@ -36,7 +37,9 @@ public class UserController {
             String teacherName=teacherService.allTeacherByIdAndPwdService(Id,Pwd);
             if(teacherName!=null){
                 session.setAttribute("teacherId",Id);
-                modelAndView.setViewName("/index/student/index.jsp");
+                Teacher teacher=teacherService.allTeacherByIdService(Id);
+                session.setAttribute("teacher",teacher);
+                modelAndView.setViewName("/index/teacher/index.jsp");
             }else {
                 modelAndView.setViewName("login/login.jsp");
             }

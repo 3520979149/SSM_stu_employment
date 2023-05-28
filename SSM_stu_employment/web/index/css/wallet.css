@@ -141,7 +141,7 @@ table td, table th {
     width: 80%;
     min-width: 90px;
 }
-.searchBox input[type="button"],
+.searchBox input[type="submit"],
 .searchBox input[type="reset"]
 {
     position: absolute;

@@ -17,20 +17,18 @@
 
   <!-- CSS FILES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;700&display=swap" rel="stylesheet">
-
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <link href="../css/bootstrap-icons.css" rel="stylesheet">
-  <link href="../css/tooplate-mini-finance.css" rel="stylesheet">
+  <link href="/index/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/index/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="/index/css/apexcharts.css" rel="stylesheet">
+  <link href="/index/css/tooplate-mini-finance.css" rel="stylesheet">
 </head>
 
 <body>
 <header class="navbar sticky-top flex-md-nowrap">
   <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-    <a class="navbar-brand" href="index.html">
+    <a class="navbar-brand" href="/index/teacher/index.jsp">
       <i class="bi-box"></i>
       学生就业管理系统
     </a>
@@ -103,7 +101,7 @@
 
       <div class="dropdown px-3">
         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="../images/user.png" class="profile-image img-fluid" alt="">
+          <img src="../../images/user.png" class="profile-image img-fluid" alt="">
         </a>
         <ul class="dropdown-menu bg-white shadow">
           <li>
@@ -118,14 +116,14 @@
           </li>
 
           <li>
-            <a class="dropdown-item" href="/teacher/index.jsp">
+            <a class="dropdown-item" href="/index/teacher/index.jsp">
               <i class="bi-person me-2"></i>
               个人中心
             </a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="/teacher/setting.jsp">
+            <a class="dropdown-item" href="/index/teacher/setting.jsp">
               <i class="bi-gear me-2"></i>
               设置
             </a>
@@ -149,28 +147,28 @@
       <div class="position-sticky py-4 px-3 sidebar-sticky">
         <ul class="nav flex-column h-100">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/teacher/index.jsp">
+            <a class="nav-link" aria-current="page" href="/index/teacher/index.jsp">
               <i class="bi-house-fill me-2"></i>
               首页
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link active" href="/teacher/profile.jsp">
+            <a class="nav-link active" href="/TeacherInformation">
               <i class="bi-person me-2"></i>
               个人中心
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/teacher/wallet.jsp">
+            <a class="nav-link" href="/TeacherStudentInformation">
               <i class="bi-wallet me-2"></i>
               实习就业管理
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/teacher/setting.jsp">
+            <a class="nav-link" href="/index/teacher/setting.jsp">
               <i class="bi-gear me-2"></i>
               设置
             </a>
@@ -178,7 +176,7 @@
 
 
           <li class="nav-item border-top mt-auto pt-2">
-            <a class="nav-link" href="/Login/login.jsp">
+            <a class="nav-link" href="/index.jsp">
               <i class="bi-box-arrow-left me-2"></i>
               退出系统
             </a>
@@ -208,24 +206,29 @@
                   </div>
               </div> -->
 
-              <div class="col-lg-9 col-12">
-                <p class="d-flex flex-wrap mb-2">
-                  <strong>姓名</strong>
-                  <span>${userName}</span>
-                </p>
 
+              <div class="col-lg-9 col-12">
                 <p class="d-flex flex-wrap mb-2">
                   <strong>工号</strong>
                   <span>
-                    ${userId}
+                    ${teacher.teacherId}
                   </span>
                 </p>
 
                 <p class="d-flex flex-wrap mb-2">
+                  <strong>姓名</strong>
+                  <span>${teacher.teacherName}</span>
+                </p>
+
+                <p class="d-flex flex-wrap mb-2">
+                  <strong>性别</strong>
+                  <span>${teacher.teacherSex}</span>
+                </p>
+
+
+                <p class="d-flex flex-wrap mb-2">
                   <strong>联系方式:</strong>
-                  <span>
-                                                (60) 12 345 6789
-                                            </span>
+                  <span>${teacher.teacherTel}</span>
                 </p>
                 <!--
                                                         <p class="d-flex flex-wrap mb-2">
@@ -248,33 +251,17 @@
 
             <p class="d-flex flex-wrap mb-2">
               <strong>学院:</strong>
-              <span>XXXXX</span>
+              <span>${teacher.college}</span>
             </p>
 
             <p class="d-flex flex-wrap mb-2">
               <strong>专业:</strong>
-              <span>XXXXXXXX</span>
+              <span>${teacher.major}</span>
             </p>
           </div>
         </div>
 
-        <div class="col-lg-5 col-12">
-          <div class="custom-block custom-block-contact">
-            <h6 class="mb-4">Still can’t find what you looking for?</h6>
 
-            <p>
-              <strong>Call us:</strong>
-              <a href="tel: 305-240-9671" class="ms-2">
-                (60)
-                305-240-9671
-              </a>
-            </p>
-
-            <a href="#" class="btn custom-btn custom-btn-bg-white mt-3">
-              Chat with us
-            </a>
-          </div>
-        </div>
       </div>
     </main>
 
@@ -282,9 +269,10 @@
 </div>
 
 <!-- JAVASCRIPT FILES -->
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/custom.js"></script>
+<script src="/index/js/jquery.min.js"></script>
+<script src="/index/js/bootstrap.bundle.min.js"></script>
+<script src="/index/js/custom.js"></script>
+
 
 </body>
 </html>
