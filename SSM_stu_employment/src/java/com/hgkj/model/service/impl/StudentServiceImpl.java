@@ -32,4 +32,9 @@ public class StudentServiceImpl implements StudentService {
     public int updateStudentPwdService( String studentPwd,int studentId) {
         return studentDao.updateStudentPwdDao(studentPwd,studentId);
     }
+
+    @Override
+    public int updateStudentTelService(long studentTel, int studentId) {
+        return studentDao.updateStudentTelDao(studentTel, studentId);
+    }
 }

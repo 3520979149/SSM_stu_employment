@@ -172,7 +172,7 @@
 
 
                     <li class="nav-item border-top mt-auto pt-2">
-                        <a class="nav-link" href="/Login/login.jsp">
+                        <a class="nav-link" href="/index.jsp">
                             <i class="bi-box-arrow-left me-2"></i>
                             退出系统
                         </a>

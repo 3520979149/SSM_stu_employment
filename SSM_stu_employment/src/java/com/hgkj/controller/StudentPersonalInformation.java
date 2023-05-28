@@ -29,4 +29,6 @@ public class StudentPersonalInformation {
         modelAndView.setViewName("/index/student/profile.jsp");
         return modelAndView;
     }
+
+
 }

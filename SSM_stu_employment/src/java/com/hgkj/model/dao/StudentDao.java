@@ -21,6 +21,9 @@ public interface StudentDao {
     public Student allStudentByIDao(@Param("studentId") int studentId);
 
     @Update("update student set studentPwd=#{newOne_password} where studentId=#{studentId}")
-    public int updateStudentPwdDao(@Param("newOne_password") String newOne_password,@Param("studentId") int studentId);
+    public int updateStudentPwdDao(@Param("newOne_password") String newOne_password, @Param("studentId") int studentId);
+
+    @Update("update student set studentTel=#{studentTel} where studentId=#{studentId}")
+    public int updateStudentTelDao(@Param("studentTel") long studentTel, @Param("studentId") int studentId);
 
 }

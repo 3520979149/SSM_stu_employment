@@ -19,7 +19,7 @@
 <body>
 <header class="navbar sticky-top flex-md-nowrap">
     <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-        <a class="navbar-brand" href="index.jsp">
+        <a class="navbar-brand" href="/index/student/index.jsp">
             <i class="bi-box"></i>
             学生就业管理系统
         </a>
@@ -171,7 +171,7 @@
                     </li>
 
                     <li class="nav-item border-top mt-auto pt-2">
-                        <a class="nav-link" href="/login/login.jsp">
+                        <a class="nav-link" href="/index.jsp">
                             <i class="bi-box-arrow-left me-2"></i>
                             退出系统
                         </a>
@@ -181,86 +181,126 @@
         </nav>
 
         <main class="main-wrapper col-md-9 ms-sm-auto py-4 col-lg-9 px-md-4 border-start">
+
             <div class="inputBox" id="poplayer">
                 <input type="button" onclick="popDiv();" value="添加就业信息">
             </div>
-            <div class="tableBox">
-                <table border="1px" cellpadding="5px" cellspacing="1px">
-                <tr>
-                    <th>就业时间</th>
-                    <th>就业单位</th>
-                    <th>就业单位地址</th>
-                    <th>就业岗位</th>
-                    <th>薪资待遇</th>
-                    <th>单位联系人</th>
-                    <th>单位联系人电话</th>
-                    <th>目前状态</th>
-                    <th>操作</th>
-                </tr>
-                <c:forEach items="${employment}" var="employment">
-                    <tr>
-                        <td>${employment.employmentTime}</td>
-                        <td>${employment.employmentCompany}</td>
-                        <td>${employment.companyAddress}</td>
-                        <td>${employment.employmentPost}</td>
-                        <td>${employment.salary}元</td>
-                        <td>${employment.employmentContact}</td>
-                        <td>${employment.contactTel}</td>
-                        <td>${employment.state}</td>
-
-                    <td>
-                        <a href="#" onclick="popDiv()">修改</a>
-                        <a href="#">删除</a>
-                    </td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </div>
-        <div id="popDiv">
-            <div class="close">
-                <a href="javascript:void(0)" onclick="closePop()">X</a>
+            <div id="popDiv">
+                <div class="close">
+                    <span>一经添加不可修改!</span>
+                    <a href="javascript:void(0)" onclick="closePop()">X</a>
+                </div>
+                <form action="/AddStudentInformation" method="post">
+                    <div class="addBox">
+                        <span>就业时间</span>
+                        <input type="date" name="employmentTime">
+                    </div>
+                    <div class="addBox">
+                        <span>就业公司</span>
+                        <input type="text" name="employmentCompany">
+                    </div>
+                    <div class="addBox">
+                        <span>就业公司地址</span>
+                        <input type="text" name="companyAddress">
+                    </div>
+                    <div class="addBox">
+                        <span>就业岗位</span>
+                        <input type="text" name="employmentPost">
+                    </div>
+                    <div class="addBox">
+                        <span>薪资待遇</span>
+                        <input type="text" name="salary">
+                    </div>
+                    <div class="addBox">
+                        <span>公司联系人</span>
+                        <input type="text" name="employmentContact">
+                    </div>
+                    <div class="addBox">
+                        <span>公司联系人电话</span>
+                        <input type="text" name="contactTel">
+                    </div>
+                    <div class="addBox">
+                        <span>就业状态</span>
+                        <input type="radio" class="radio" name="state" value="在职" checked="true">在职
+                        <input type="radio" class="radio" name="state" value="实习中">实习中
+                        <input type="radio" class="radio" name="state" value="已离职">已离职
+                    </div>
+                    <div class="addBox submit">
+                        <input type="submit" value="提交">
+                        <input type="reset" value="重置">
+                    </div>
+                </form>
             </div>
-            <form action="" method="post">
-                <div class="addBox">
-                    <span>就业时间</span>
-                    <input type="date" name="employmentTime">
+            <c:forEach items="${employment}" var="employment">
+                <div class="tableBox">
+                    <table border="1px" cellpadding="5px" cellspacing="1px">
+                        <tr>
+                            <th>就业时间</th>
+                            <th>就业单位</th>
+                            <th>就业单位地址</th>
+                            <th>就业岗位</th>
+                            <th>薪资待遇</th>
+                            <th>单位联系人</th>
+                            <th>单位联系人电话</th>
+                            <th>目前状态</th>
+<%--                            <th>操作</th>--%>
+                        </tr>
+                        <tr>
+                            <td>${employment.employmentTime}</td>
+                            <td>${employment.employmentCompany}</td>
+                            <td>${employment.companyAddress}</td>
+                            <td>${employment.employmentPost}</td>
+                            <td>${employment.salary}元</td>
+                            <td>${employment.employmentContact}</td>
+                            <td>${employment.contactTel}</td>
+                            <td>${employment.state}</td>
+
+<%--                            <td>--%>
+<%--                                <a href="#" onclick="popDiv2()">修改</a>--%>
+<%--                            </td>--%>
+                        </tr>
+
+                    </table>
                 </div>
-                <div class="addBox">
-                    <span>就业公司</span>
-                    <input type="text" name="employmentCompany">
+                <div id="popDiv2">
+                    <div class="close">
+                        <a href="javascript:void(0)" onclick="closePop2()">X</a>
+                    </div>
+                    <form action="/UpdateEmploymentInformation" method="post">
+                        <div class="addBox">
+                            <span>就业岗位</span>
+                            <input type="text" name="employmentPost"
+                                   value="${employment.employmentPost}">
+                        </div>
+                        <div class="addBox">
+                            <span>薪资待遇</span>
+                            <input type="text" name="salary" value="${employment.salary}">
+                        </div>
+                        <div class="addBox">
+                            <span>公司联系人</span>
+                            <input type="text" name="employmentContact"
+                                   value="${employment.employmentContact}">
+                        </div>
+                        <div class="addBox">
+                            <span>公司联系人电话</span>
+                            <input type="text" name="contactTel" value="${employment.contactTel}">
+                        </div>
+                        <div class="addBox">
+                            <span>就业状态</span>
+                            <input type="radio" class="radio" name="state"
+                                   value="在职" ${employment.state =='在职' ? 'checked' : ''}>在职
+                            <input type="radio" class="radio" name="state"
+                                   value="实习中" ${employment.state == '实习中' ? 'checked' : ''}>实习中
+                            <input type="radio" class="radio" name="state"
+                                   value="已离职" ${employment.state == '已离职' ? 'checked' : ''}>已离职
+                        </div>
+                        <div class="addBox submit">
+                            <input type="submit" value="提交">
+                            <input type="reset" value="重置">
+                        </div>
+                    </form>
                 </div>
-                <div class="addBox">
-                    <span>就业公司地址</span>
-                    <input type="text" name="companyAddress">
-                </div>
-                <div class="addBox">
-                    <span>就业岗位</span>
-                    <input type="text" name="employmentPost">
-                </div>
-                <div class="addBox">
-                    <span>薪资待遇</span>
-                    <input type="text" name="salary">
-                </div>
-                <div class="addBox">
-                    <span>公司联系人</span>
-                    <input type="text">
-                </div>
-                <div class="addBox">
-                    <span>公司联系人电话</span>
-                    <input type="text" name="employmentContact">
-                </div>
-                <div class="addBox">
-                    <span>就业状态</span>
-                    <input type="radio" class="radio" name="state" value="在职" checked="true">在职
-                    <input type="radio" class="radio" name="state" value="面试中">面试中
-                    <input type="radio" class="radio" name="state" value="已离职">已离职
-                </div>
-                <div class="addBox submit">
-                    <input type="submit" value="提交">
-                    <input type="reset" value="重置">
-                </div>
-            </form>
-        </div>
+            </c:forEach>
 
 
         </main>

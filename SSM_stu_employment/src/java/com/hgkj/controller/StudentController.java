@@ -57,5 +57,15 @@ public class StudentController {
         }
         return modelAndView;
     }
+    @RequestMapping("/updateStudentTel")
+    public ModelAndView updateStudentTel(long studentTel,HttpSession session){
+        ModelAndView modelAndView=new ModelAndView();
+        int studentId = (int) session.getAttribute("studentId");
+        int row=studentService.updateStudentTelService(studentTel,studentId);
+        if(row>0){
+            modelAndView.setViewName("/index/student/setting.jsp");
+        }
+        return modelAndView;
+    }
 
 }

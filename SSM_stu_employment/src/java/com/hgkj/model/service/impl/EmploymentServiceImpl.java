@@ -18,4 +18,14 @@ public class EmploymentServiceImpl implements EmploymentService {
     public List<Employment> allEmploymentByStudentIdService(int studentId) {
         return employmentDao.allEmploymentByStudentIdDao(studentId);
     }
+
+    @Override
+    public int addEmploymentService(Employment employment) {
+        return employmentDao.addEmploymentDao(employment);
+    }
+
+    @Override
+    public int updateEmploymentByIdService(Employment employment, int employmentId) {
+        return employmentDao.updateEmploymentByIdDao(employment,employmentId);
+    }
 }

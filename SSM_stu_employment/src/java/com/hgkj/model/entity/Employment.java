@@ -18,4 +18,15 @@ public class Employment {
     private String employmentContact;        //公司联系人
     private long contactTel;                 //公司联系人电话
     private String state;                    //就业状态
+
+    public Employment() {
+    }
+
+    public Employment(String employmentPost, Double salary, String employmentContact, long contactTel, String state) {
+        this.employmentPost = employmentPost;
+        this.salary = salary;
+        this.employmentContact = employmentContact;
+        this.contactTel = contactTel;
+        this.state = state;
+    }
 }

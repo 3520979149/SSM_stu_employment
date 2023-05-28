@@ -7,4 +7,5 @@ public interface StudentService {
     public int addStudent(Student student);
     public Student allStudentByIdService(int studentId);
     public int updateStudentPwdService(String studentPwd,int studentId);
+    public int updateStudentTelService(long studentTel,int studentId);
 }

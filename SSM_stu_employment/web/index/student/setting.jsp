@@ -25,7 +25,7 @@
 <body>
 <header class="navbar sticky-top flex-md-nowrap">
     <div class="col-md-3 col-lg-3 me-0 px-3 fs-6">
-        <a class="navbar-brand" href="index.jsp">
+        <a class="navbar-brand" href="/index/student/index.jsp">
             <i class="bi-box"></i>
             学生就业管理系统
         </a>
@@ -142,7 +142,7 @@
                     </li>
 
                     <li class="nav-item border-top mt-auto pt-2">
-                        <a class="nav-link" href="/login/login.jsp">
+                        <a class="nav-link" href="/index.jsp">
                             <i class="bi-box-arrow-left me-2"></i>
                             退出系统
                         </a>
@@ -163,7 +163,14 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#profile-tab-pane" type="button" role="tab"
-                                        aria-controls="profile-tab-pane" aria-selected="true">修改密码</button>
+                                        aria-controls="profile-tab-pane" aria-selected="true">修改个人信息
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="password-tab" data-bs-toggle="tab"
+                                        data-bs-target="#password-tab-pane" type="button" role="tab"
+                                        aria-controls="password-tab-pane" aria-selected="true">修改密码
+                                </button>
                             </li>
 
                             <li class="nav-item" role="presentation">
@@ -174,13 +181,39 @@
                                     <button class="nav-link" id="notification-tab" data-bs-toggle="tab" data-bs-target="#notification-tab-pane" type="button" role="tab" aria-controls="notification-tab-pane" aria-selected="false">通知</button>
                                 </li> -->
                         </ul>
+
                         <div class="tab-content" id="myTabContent">
-                            <!-- 修改密码 -->
                             <div class="tab-pane fade show active" id="profile-tab-pane" role="tabpanel"
                                  aria-labelledby="profile-tab" tabindex="0">
+                                <h6 class="mb-4">个人信息</h6>
+
+                                <form class="custom-form profile-form" action="/updateStudentTel" method="post" role="form">
+                                    <input type="text" name="major" id="major" pattern=""
+                                           class="form-control" placeholder="您的权限只能修改联系方式哦！" required=""
+                                           readonly="true">
+
+                                    <input type="text" name="studentTel" id="phone"
+                                           pattern="[0-9]{1,11}" class="form-control" placeholder="请输入您的联系方式"
+                                           required="">
+
+                                    <div class="d-flex">
+                                        <%--                                        <button type="button" class="form-control me-3">--%>
+                                        <%--                                            重置--%>
+                                        <%--                                        </button>--%>
+
+                                        <button type="submit" class="form-control ms-2">
+                                            保存
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- 修改密码 -->
+                            <div class="tab-pane fade" id="password-tab-pane" role="tabpanel"
+                                 aria-labelledby="password-tab" tabindex="0">
                                 <h6 class="mb-4">密码</h6>
 
-                                <form class="custom-form password-form" action="/updateStudentPwd" method="post" role="form">
+                                <form class="custom-form password-form" action="/updateStudentPwd" method="post"
+                                      role="form">
                                     <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}"
                                            class="form-control" placeholder="请输入旧密码" required="">
 
@@ -193,9 +226,9 @@
                                            required="">
 
                                     <div class="d-flex">
-                                        <button type="reset" class="form-control me-3">
-                                            重置
-                                        </button>
+                                        <%--                                        <button type="button" class="form-control me-3">--%>
+                                        <%--                                            重置--%>
+                                        <%--                                        </button>--%>
 
                                         <button type="submit" class="form-control ms-2">
                                             保存
@@ -203,67 +236,14 @@
                                     </div>
                                 </form>
                             </div>
-                            <!-- 个人信息 -->
-                            <!-- <div class="tab-pane fade" id="password-tab-pane" role="tabpanel" aria-labelledby="password-tab" tabindex="0">
-                                    <h6 class="mb-4">用户信息</h6>
 
-                                    <form class="custom-form profile-form" action="#" method="post" role="form">
-                                        <input class="form-control" type="text" name="profile-userName"  placeholder="请输入您的姓名">
-                                        <input class="form-control" type="text" name="profile-userId"  placeholder="请输入您的学号">
-                                        <div class="input-group mb-1">
-                                            <img src="../images/profile/senior-man-white-sweater-eyeglasses.jpg" class="profile-image img-fluid" alt="">
-
-                                            <input type="file" class="form-control" id="inputGroupFile02">
-                                        </div>
-                                        <div class="d-flex">
-                                            <button type="button" class="form-control me-3">
-                                                重置
-                                            </button>
-
-                                            <button type="submit" class="form-control ms-2">
-                                                保存
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div> -->
-                            <!-- 通知 -->
-                            <!-- <div class="tab-pane fade" id="notification-tab-pane" role="tabpanel" aria-labelledby="notification-tab" tabindex="0">
-                                    <h6 class="mb-4">Notification</h6>
-
-                                    <form class="custom-form notification-form" action="#" method="post" role="form">
-
-                                        <div class="form-check form-switch d-flex mb-3 ps-0">
-                                            <label class="form-check-label" for="flexSwitchCheckCheckedOne">Account activity</label>
-
-                                            <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedOne" checked>
-                                        </div>
-
-                                        <div class="form-check form-switch d-flex mb-3 ps-0">
-                                            <label class="form-check-label" for="flexSwitchCheckCheckedTwo">Payment updated</label>
-
-                                            <input class="form-check-input ms-auto" type="checkbox" name="form-check-input" role="switch" id="flexSwitchCheckCheckedTwo" checked>
-                                        </div>
-
-                                        <div class="d-flex mt-4">
-                                            <button type="button" class="form-control me-3">
-                                                Reset
-                                            </button>
-
-                                            <button type="submit" class="form-control ms-2">
-                                                Update Password
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+        </main>
     </div>
-
-
-    </main>
-
 </div>
 </div>
 
